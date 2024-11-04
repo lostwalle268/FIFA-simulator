@@ -7,9 +7,6 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1280, 659]"/>
-    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -35,9 +32,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="rbRemate" min="-2" max="-2" attributes="0"/>
-                          <Component id="rbPosesión" min="-2" pref="19" max="-2" attributes="0"/>
-                          <Component id="rbVelocidad" alignment="0" min="-2" pref="19" max="-2" attributes="0"/>
+                          <Component id="rbVelocidad" min="-2" max="-2" attributes="0"/>
+                          <Component id="rbRemate" min="-2" pref="19" max="-2" attributes="0"/>
+                          <Component id="rbPosesión" alignment="0" min="-2" pref="19" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="178" max="-2" attributes="0"/>
                   </Group>
@@ -57,12 +54,12 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace pref="221" max="32767" attributes="0"/>
-              <Component id="rbVelocidad" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace pref="219" max="32767" attributes="0"/>
               <Component id="rbPosesión" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Component id="rbRemate" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <Component id="rbVelocidad" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
               <Component id="btnAceptar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
@@ -86,19 +83,15 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStartActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="rbPosesi&#xf3;n">
-      <Properties>
-        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-          <ComponentRef name="buttonGroupEstrategias"/>
-        </Property>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JRadioButton" name="rbRemate">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroupEstrategias"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbRemateActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="rbVelocidad">
       <Properties>
@@ -106,6 +99,19 @@
           <ComponentRef name="buttonGroupEstrategias"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbVelocidadActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="rbPosesi&#xf3;n">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="buttonGroupEstrategias"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbPosesi&#xf3;nActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnAceptar">
       <Properties>

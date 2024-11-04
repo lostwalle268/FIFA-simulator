@@ -19,7 +19,7 @@ public class Menu extends javax.swing.JFrame {
     
     FondoPanel fondo = new FondoPanel();
 
-    public static GameRemate Game = new GameRemate();
+    public static Game Game = new Game();
 
     /**
      * Creates new form Menu
@@ -42,13 +42,12 @@ public class Menu extends javax.swing.JFrame {
 
         buttonGroupEstrategias = new javax.swing.ButtonGroup();
         btnStart = new javax.swing.JButton();
-        rbPosesión = new javax.swing.JRadioButton();
         rbRemate = new javax.swing.JRadioButton();
         rbVelocidad = new javax.swing.JRadioButton();
+        rbPosesión = new javax.swing.JRadioButton();
         btnAceptar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1280, 659));
 
         btnStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/start.png"))); // NOI18N
         btnStart.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -58,11 +57,26 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        buttonGroupEstrategias.add(rbPosesión);
-
         buttonGroupEstrategias.add(rbRemate);
+        rbRemate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbRemateActionPerformed(evt);
+            }
+        });
 
         buttonGroupEstrategias.add(rbVelocidad);
+        rbVelocidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbVelocidadActionPerformed(evt);
+            }
+        });
+
+        buttonGroupEstrategias.add(rbPosesión);
+        rbPosesión.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbPosesiónActionPerformed(evt);
+            }
+        });
 
         btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/play.png"))); // NOI18N
         btnAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -81,9 +95,9 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rbRemate)
-                            .addComponent(rbPosesión, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rbVelocidad, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(rbVelocidad)
+                            .addComponent(rbRemate, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rbPosesión, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(178, 178, 178))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnAceptar)
@@ -96,12 +110,12 @@ public class Menu extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(221, Short.MAX_VALUE)
-                .addComponent(rbVelocidad)
-                .addGap(40, 40, 40)
+                .addContainerGap(219, Short.MAX_VALUE)
                 .addComponent(rbPosesión)
                 .addGap(40, 40, 40)
                 .addComponent(rbRemate)
+                .addGap(40, 40, 40)
+                .addComponent(rbVelocidad)
                 .addGap(56, 56, 56)
                 .addComponent(btnAceptar)
                 .addGap(46, 46, 46)
@@ -125,7 +139,7 @@ public class Menu extends javax.swing.JFrame {
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
         // TODO add your handling code here:
 
-        if (rbVelocidad.isSelected() == false && rbPosesión.isSelected() == false && rbRemate.isSelected() == false) {
+        if (rbPosesión.isSelected() == false && rbRemate.isSelected() == false && rbVelocidad.isSelected() == false) {
             JOptionPane.showMessageDialog(null, "No seleccionó ninguna estrategia");
         } else {
             Game.setVisible(true);
@@ -137,10 +151,6 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
-        if (rbVelocidad.isSelected()) {
-            JOptionPane.showMessageDialog(null, "¡Jugará con la estrategia de Velocidad!");
-        }
-
         if (rbPosesión.isSelected()) {
             JOptionPane.showMessageDialog(null, "¡Jugará con la estrategia de Posesión!");
         }
@@ -149,10 +159,26 @@ public class Menu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "¡Jugará con la estrategia de Remate!");
         }
 
-        if (rbVelocidad.isSelected() == false && rbPosesión.isSelected() == false && rbRemate.isSelected() == false) {
+        if (rbVelocidad.isSelected()) {
+            JOptionPane.showMessageDialog(null, "¡Jugará con la estrategia de Velocidad!");
+        }
+
+        if (rbPosesión.isSelected() == false && rbRemate.isSelected() == false && rbVelocidad.isSelected() == false) {
             JOptionPane.showMessageDialog(null, "No seleccionó ninguna estrategia");
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void rbPosesiónActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbPosesiónActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbPosesiónActionPerformed
+
+    private void rbRemateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbRemateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbRemateActionPerformed
+
+    private void rbVelocidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbVelocidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbVelocidadActionPerformed
 
     /**
      * @param args the command line arguments
