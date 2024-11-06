@@ -16,10 +16,11 @@ import javax.swing.JPanel;
  * @author pc
  */
 public class Menu extends javax.swing.JFrame {
-    
+
     FondoPanel fondo = new FondoPanel();
 
     public static Game Game = new Game();
+    int e;
 
     /**
      * Creates new form Menu
@@ -127,7 +128,7 @@ public class Menu extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    public void transparentButton(){
+    public void transparentButton() {
         btnStart.setOpaque(false);
         btnStart.setContentAreaFilled(false);
         btnStart.setBorderPainted(false);
@@ -135,15 +136,17 @@ public class Menu extends javax.swing.JFrame {
         btnAceptar.setContentAreaFilled(false);
         btnAceptar.setBorderPainted(false);
     }
-    
+
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
         // TODO add your handling code here:
 
         if (rbPosesión.isSelected() == false && rbRemate.isSelected() == false && rbVelocidad.isSelected() == false) {
             JOptionPane.showMessageDialog(null, "No seleccionó ninguna estrategia");
         } else {
+            Game.setE(e);
             Game.setVisible(true);
             this.dispose();
+            
         }
 
 
@@ -153,18 +156,24 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (rbPosesión.isSelected()) {
             JOptionPane.showMessageDialog(null, "¡Jugará con la estrategia de Posesión!");
+            e = 1;
+            
+            
         }
 
         if (rbRemate.isSelected()) {
             JOptionPane.showMessageDialog(null, "¡Jugará con la estrategia de Remate!");
+            e = 2;
         }
 
         if (rbVelocidad.isSelected()) {
             JOptionPane.showMessageDialog(null, "¡Jugará con la estrategia de Velocidad!");
+            e = 3;
         }
 
         if (rbPosesión.isSelected() == false && rbRemate.isSelected() == false && rbVelocidad.isSelected() == false) {
             JOptionPane.showMessageDialog(null, "No seleccionó ninguna estrategia");
+
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
@@ -209,15 +218,17 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbVelocidad;
     // End of variables declaration//GEN-END:variables
 
-    class FondoPanel extends JPanel{
+    class FondoPanel extends JPanel {
+
         private Image img;
+
         @Override
-        public void paint(Graphics g){
+        public void paint(Graphics g) {
             img = new ImageIcon(getClass().getResource("/imgs/menu.jpg")).getImage();
             g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
             setOpaque(false);
             super.paint(g);
         }
     }
-    
+
 }

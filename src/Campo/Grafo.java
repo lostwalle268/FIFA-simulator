@@ -164,7 +164,6 @@ public class Grafo {
                     }
                 }
                 break;
-
         }
         return posesion;
     }

@@ -19,6 +19,16 @@ public class Campo {
     private Grafo equipoA;
     ThreadLocalRandom tlr = ThreadLocalRandom.current();
 
+    public int getMarcadora() {
+        return marcadora;
+    }
+
+    public int getIntento() {
+        return intento;
+    }
+    
+    
+
     // Método para armar grafos para cada equipo por separado
     public Grafo armarGrafoP(int e, ArrayList<Jugador> equipo, boolean Equipo) {
         Grafo grafo = new Grafo(equipo.size());  // Grafo con tamaño dinámico.
@@ -60,12 +70,12 @@ public class Campo {
             // Si es el último jugador en el camino, se intenta hacer el gol
             if (i == caminoMinimo.size() - 1) {
                 int numeroRandom = tlr.nextInt(0, 101);
-                JOptionPane.showMessageDialog(null, (jugador.getNombre() + " se acerca a la porteria y lanza una patada al balon y..."));
+                JOptionPane.showMessageDialog(null, (jugador.getNombre() + ", se acerca a la porteria y lanza una patada al balon y..."));
                 if (numeroRandom <= jugador.getRemate()) {
                     marcadora++; // Incrementa el marcador si es gol
-                    JOptionPane.showMessageDialog(null, jugador.getNombre() + " ha anotado un gol! Marcador: " + marcadora);
+                    JOptionPane.showMessageDialog(null, jugador.getNombre() + ", ha anotado un gol! Marcador: " + marcadora);
                 } else {
-                    JOptionPane.showMessageDialog(null, jugador.getNombre() + " ha fallado el gol!");
+                    JOptionPane.showMessageDialog(null, jugador.getNombre() + ", ha fallado el gol!");
                 }
             }
 
@@ -74,11 +84,12 @@ public class Campo {
         }
     }
 
-    public void initGame() throws IOException {
-
+    public void initGame(int e) throws IOException {
+        System.out.println("inició");
+        System.out.println("Estás usando la estrategia: "+e);
         // Rutas de los archivos CSV de cada equipo.
-        String ruta1 = "C:\\Users\\user\\Documents\\GitHub\\Movimiento-tactico-FIFA\\assets\\equipo1.csv";
-        String ruta2 = "C:\\Users\\user\\Documents\\GitHub\\Movimiento-tactico-FIFA\\assets\\equipo2.csv";
+        String ruta1 = "C:\\Users\\pc\\Documents\\GitHub\\FIFA-simulator\\assets\\equipo1.csv";
+        String ruta2 = "C:\\Users\\pc\\Documents\\GitHub\\FIFA-simulator\\assets\\equipo2.csv";
 
         // Inicializar las instancias para leer los equipos desde los CSV.
         CSV tabla1 = new CSV();
@@ -88,10 +99,10 @@ public class Campo {
         ArrayList<Jugador> equipo1 = tabla1.aggEquipo(ruta1);
         //ArrayList<Jugador> equipo2 = tabla2.aggEquipo(ruta2);
 
-        Grafo grafoEquipoA = armarGrafoP(1, equipo1, true);
+        Grafo grafoEquipoA = armarGrafoP(e, equipo1, true);
         //Grafo grafoEquipoB = armarGrafoP(1, equipo2, false);
         // Obtener camino mínimo desde el portero hasta el último jugador (ejemplo)
-        ArrayList<Nodo> caminoMinimo = Grafo.caminos(1, grafoEquipoA, equipo1, 0);
+        ArrayList<Nodo> caminoMinimo = Grafo.caminos(e, grafoEquipoA, equipo1, 0);
         // Simular el paso de la pelota y el intento de gol
         intentoGolazo(caminoMinimo);
         intento++;
