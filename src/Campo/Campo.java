@@ -88,8 +88,8 @@ public class Campo {
         System.out.println("inició");
         System.out.println("Estás usando la estrategia: "+e);
         // Rutas de los archivos CSV de cada equipo.
-        String ruta1 = "C:\\Users\\pc\\Documents\\GitHub\\FIFA-simulator\\assets\\equipo1.csv";
-        String ruta2 = "C:\\Users\\pc\\Documents\\GitHub\\FIFA-simulator\\assets\\equipo2.csv";
+        String ruta1 = "C:\\Users\\user\\Documents\\GitHub\\FIFA-simulator\\assets\\equipo1.csv";
+        String ruta2 = "C:\\Users\\user\\Documents\\GitHub\\FIFA-simulator\\assets\\equipo2.csv";
 
         // Inicializar las instancias para leer los equipos desde los CSV.
         CSV tabla1 = new CSV();

@@ -56,7 +56,6 @@ public class Team extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1280, 657));
 
         btnTeamA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/teamA.png"))); // NOI18N
         btnTeamA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -82,7 +81,8 @@ public class Team extends javax.swing.JFrame {
             }
         });
 
-        panel.setBackground(new java.awt.Color(204, 204, 255));
+        panel.setBackground(new java.awt.Color(153, 153, 153));
+        panel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         panel.setForeground(new java.awt.Color(0, 0, 0));
         panel.setPreferredSize(new java.awt.Dimension(420, 515));
 
@@ -90,11 +90,11 @@ public class Team extends javax.swing.JFrame {
         panel.setLayout(panelLayout);
         panelLayout.setHorizontalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 594, Short.MAX_VALUE)
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 571, Short.MAX_VALUE)
+            .addGap(0, 565, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
